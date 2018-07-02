@@ -10,11 +10,11 @@ var motorPin = 14; // Gpio Pin to which the servo's signal wire is connected to
 var blynkToken = 'blynk_token_here'; // Blynk Token sent from app, each person's is different
 
 //Setup servo
-var Gpio = require('pigpio').Gpio; //requiring the pigpio module
+var Gpio = require('pigpio').Gpio; //includes the pigpio module
 var motor = new Gpio(motorPin, {mode: Gpio.OUTPUT}); // setting the motor as output
 
 //Setup blynk
-var Blynk = require('blynk-library'); //requiring the blynk-library module
+var Blynk = require('blynk-library'); //includes the blynk-library module
 var blynk = new Blynk.Blynk(blynkToken);
 var v0 = new blynk.VirtualPin(0);
 
@@ -44,7 +44,6 @@ function lockDoor() {
 
 function unlockDoor() {
 	motor.servoWrite(unlockedState);
-  	blynk.notify("Door has been unlocked!"); 
 
   	//After 1.5 seconds, the door lock servo turns off to avoid stall current
   	setTimeout(function(){motor.servoWrite(0)}, 1500)
