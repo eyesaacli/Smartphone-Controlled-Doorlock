@@ -65,7 +65,7 @@ while True:
 		break
 
 # Do a bit of cleanup
-print("\n [INFO] Exiting Program and cleaning wup stuff")
+print("\n [INFO] Exiting Program and cleaning up stuff")
 pwm.stop()
 GPIO.cleanup()
 cam.release()
